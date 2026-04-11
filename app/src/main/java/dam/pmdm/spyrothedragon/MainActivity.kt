@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity() {
             navController = NavHostFragment.findNavController(it)
             NavigationUI.setupWithNavController(binding.navView, navController!!)
             NavigationUI.setupActionBarWithNavController(this, navController!!)
+
+            // Navegamos a la guía al iniciar la aplicación si es la primera vez (en este caso siempre para la tarea)
+            navController?.navigate(R.id.guidePage1Fragment)
         }
 
         binding.navView.setOnItemSelectedListener { menuItem ->

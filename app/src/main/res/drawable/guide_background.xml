@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Base Gradient -->
     <item>
         <shape android:shape="rectangle">
             <gradient
-                android:startColor="#E64B0082"
-                android:centerColor="#E6800080"
-                android:endColor="#E6DAA520"
+                android:startColor="#804B0082"
+                android:centerColor="#80800080"
+                android:endColor="#80DAA520"
                 android:angle="135"
                 android:type="linear" />
         </shape>
     </item>
-
-    <!-- Optional: Add some "sparkle" or "crystal" like shapes using another item if needed,
-         but a rich gradient is already a good representation of the magic atmosphere. -->
 </layer-list>
