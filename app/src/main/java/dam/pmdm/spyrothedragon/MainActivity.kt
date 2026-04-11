@@ -3,6 +3,7 @@ package dam.pmdm.spyrothedragon
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -42,10 +43,17 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_collectibles -> {
                     // En las pantallas de los tabs no mostramos la flecha atrás
                     supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                    binding.navView.visibility = View.VISIBLE
+                    supportActionBar?.show()
+                }
+                R.id.guidePage1Fragment -> {
+                    supportActionBar?.hide()
+                    binding.navView.visibility = View.GONE
                 }
                 else -> {
                     // En el resto de pantallas sí
                     supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                    binding.navView.visibility = View.VISIBLE
                 }
             }
         }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/navigation_characters">
+    app:startDestination="@+id/guidePage1Fragment">
 
     <fragment
         android:id="@+id/navigation_worlds"
@@ -22,4 +22,24 @@
         android:name="dam.pmdm.spyrothedragon.ui.CollectiblesFragment"
         android:label="@string/collectibles"
         tools:layout="@layout/fragment_collectibles" />
+
+    <fragment
+        android:id="@+id/guidePage1Fragment"
+        android:name="dam.pmdm.spyrothedragon.ui.guide.GuidePage1Fragment"
+        android:label="FragmentGuidePage1"
+        tools:layout="@layout/fragment_guide_page1">
+        <action
+            android:id="@+id/action_guidePage1_to_guidePage2"
+            app:destination="@id/guidePage2Fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/guidePage2Fragment"
+        android:name="dam.pmdm.spyrothedragon.ui.guide.GuidePage2Fragment"
+        android:label="FragmentGuidePage2"
+        tools:layout="@layout/fragment_guide_page2" />
 </navigation>
