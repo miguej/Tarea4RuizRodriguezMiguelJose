@@ -13,4 +13,5 @@
     <string name="guide_button_start">Comenzar</string>
     <string name="guide_characters_description">Aquí podrás explorar a todos los personajes del mundo de Spyro.</string>
     <string name="guide_button_next">Siguiente</string>
+    <string name="guide_worlds_description">Descubre los mundos increíbles que Spyro debe explorar y liberar.</string>
 </resources>

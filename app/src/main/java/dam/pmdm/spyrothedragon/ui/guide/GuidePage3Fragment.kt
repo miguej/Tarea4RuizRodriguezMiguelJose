@@ -5,22 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dam.pmdm.spyrothedragon.R
-import dam.pmdm.spyrothedragon.databinding.FragmentGuidePage2Binding
+import dam.pmdm.spyrothedragon.databinding.FragmentGuidePage3Binding
 
-class GuidePage2Fragment : DialogFragment() {
+class GuidePage3Fragment : DialogFragment() {
 
-    private var _binding: FragmentGuidePage2Binding? = null
+    private var _binding: FragmentGuidePage3Binding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentGuidePage2Binding.inflate(inflater, container, false)
+        _binding = FragmentGuidePage3Binding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -32,12 +31,9 @@ class GuidePage2Fragment : DialogFragment() {
         binding.llSpeechBubble.startAnimation(bounceAnimation)
 
         binding.btnNext.setOnClickListener {
-            // 1. Cambiamos la pestaña a Mundos
-            val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.navView)
-            bottomNav?.selectedItemId = R.id.nav_worlds
-            
-            // 2. Navegamos al diálogo de la Pantalla 3
-            findNavController().navigate(R.id.guidePage3Fragment)
+            // Aquí navegaremos a la siguiente pantalla de la guía (Paso 4)
+            // findNavController().navigate(R.id.action_guidePage3_to_guidePage4)
+            dismiss()
         }
     }
 

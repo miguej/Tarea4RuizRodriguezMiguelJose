@@ -39,5 +39,17 @@
         android:id="@+id/guidePage2Fragment"
         android:name="dam.pmdm.spyrothedragon.ui.guide.GuidePage2Fragment"
         android:label="FragmentGuidePage2"
-        tools:layout="@layout/fragment_guide_page2" />
+        tools:layout="@layout/fragment_guide_page2">
+        <action
+            android:id="@+id/action_guidePage2_to_guidePage3"
+            app:destination="@id/guidePage3Fragment"
+            app:popUpTo="@id/guidePage2Fragment"
+            app:popUpToInclusive="true" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/guidePage3Fragment"
+        android:name="dam.pmdm.spyrothedragon.ui.guide.GuidePage3Fragment"
+        android:label="FragmentGuidePage3"
+        tools:layout="@layout/fragment_guide_page3" />
 </navigation>
