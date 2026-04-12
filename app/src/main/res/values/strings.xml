@@ -11,4 +11,6 @@
     <string name="guide_welcome_title">¡Bienvenido a Spyro the Dragon!</string>
     <string name="guide_welcome_description">Preparate para explorar el fascinante mundo de Spyro the Dragon. Embárcate en una aventura mágica a través de los Reinos del Dragón. Aquí aprenderas a navegar por las diversas pestañas de la aplicación.¿Estas listo? ¡Pulsa Comenzar!.</string>
     <string name="guide_button_start">Comenzar</string>
+    <string name="guide_characters_description">Aquí podrás explorar a todos los personajes del mundo de Spyro.</string>
+    <string name="guide_button_next">Siguiente</string>
 </resources>
