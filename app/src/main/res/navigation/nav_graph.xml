@@ -30,7 +30,9 @@
         tools:layout="@layout/fragment_guide_page1">
         <action
             android:id="@+id/action_guidePage1_to_guidePage2"
-            app:destination="@id/guidePage2Fragment" />
+            app:destination="@id/guidePage2Fragment"
+            app:popUpTo="@id/guidePage1Fragment"
+            app:popUpToInclusive="true" />
     </dialog>
 
     <dialog
