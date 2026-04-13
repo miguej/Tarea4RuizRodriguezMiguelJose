@@ -63,5 +63,29 @@
         android:id="@+id/guidePage4Fragment"
         android:name="dam.pmdm.spyrothedragon.ui.guide.GuidePage4Fragment"
         android:label="FragmentGuidePage4"
-        tools:layout="@layout/fragment_guide_page4" />
+        tools:layout="@layout/fragment_guide_page4">
+        <action
+            android:id="@+id/action_guidePage4_to_guidePage5"
+            app:destination="@id/guidePage5Fragment"
+            app:popUpTo="@id/guidePage4Fragment"
+            app:popUpToInclusive="true" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/guidePage5Fragment"
+        android:name="dam.pmdm.spyrothedragon.ui.guide.GuidePage5Fragment"
+        android:label="FragmentGuidePage5"
+        tools:layout="@layout/fragment_guide_page5">
+        <action
+            android:id="@+id/action_guidePage5_to_guidePage6"
+            app:destination="@id/guidePage6Fragment"
+            app:popUpTo="@id/guidePage5Fragment"
+            app:popUpToInclusive="true" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/guidePage6Fragment"
+        android:name="dam.pmdm.spyrothedragon.ui.guide.GuidePage6Fragment"
+        android:label="FragmentGuidePage6"
+        tools:layout="@layout/fragment_guide_page6" />
 </navigation>

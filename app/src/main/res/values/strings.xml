@@ -15,4 +15,13 @@
     <string name="guide_button_next">Siguiente</string>
     <string name="guide_worlds_description">Descubre los mundos increíbles que Spyro debe explorar y liberar.</string>
     <string name="guide_collectibles_description">¡No olvides recoger todas las gemas y objetos mágicos en tu camino!</string>
+    <string name="guide_info_description">Si quieres saber quien hizo la aplicacion y más info sobre ella, consulta aquí.</string>
+    <string name="guide_button_finish">Siguiente</string>
+    <string name="guide_summary_title">¡Guía completada!</string>
+    <string name="guide_summary_description">Ya le has dado un vistazo a:</string>
+    <string name="guide_summary_step1">✓ Personajes</string>
+    <string name="guide_summary_step2">✓ Mundos</string>
+    <string name="guide_summary_step3">✓ Coleccionables</string>
+    <string name="guide_summary_step4">✓ Información</string>
+    <string name="guide_button_ready">¡Fin de  la guía! ¡Disfruta de Spyro!</string>
 </resources>
