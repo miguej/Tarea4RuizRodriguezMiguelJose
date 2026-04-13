@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dam.pmdm.spyrothedragon.R
 import dam.pmdm.spyrothedragon.databinding.FragmentGuidePage3Binding
@@ -31,9 +32,12 @@ class GuidePage3Fragment : DialogFragment() {
         binding.llSpeechBubble.startAnimation(bounceAnimation)
 
         binding.btnNext.setOnClickListener {
-            // Aquí navegaremos a la siguiente pantalla de la guía (Paso 4)
-            // findNavController().navigate(R.id.action_guidePage3_to_guidePage4)
-            dismiss()
+            // 1. Cambiamos la pestaña a Coleccionables
+            val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.navView)
+            bottomNav?.selectedItemId = R.id.nav_collectibles
+            
+            // 2. Navegamos al diálogo de la Pantalla 4
+            findNavController().navigate(R.id.guidePage4Fragment)
         }
     }
 
