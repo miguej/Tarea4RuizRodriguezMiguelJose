@@ -35,8 +35,14 @@ class GuidePage4Fragment : DialogFragment() {
         }
         // Cerramos la guia
         binding.btnSkip.setOnClickListener {
+            markGuideAsFinished()
             dismiss()
         }
+    }
+    // Marcamos la guia si la saltamos
+    private fun markGuideAsFinished() {
+        val sharedPreferences = requireActivity().getSharedPreferences("SpyroPrefs", android.content.Context.MODE_PRIVATE)
+        sharedPreferences.edit().putBoolean("guide_finished", true).apply()
     }
 
     override fun onStart() {

@@ -31,8 +31,13 @@ class MainActivity : AppCompatActivity() {
             NavigationUI.setupWithNavController(binding.navView, navController!!)
             NavigationUI.setupActionBarWithNavController(this, navController!!)
 
-            // Navegamos a la guía al iniciar la aplicación si es la primera vez (en este caso siempre para la tarea)
-            navController?.navigate(R.id.guidePage1Fragment)
+            // Usamos sharedpreferences para saber si ya hemos visto la guia
+            val sharedPreferences = getSharedPreferences("SpyroPrefs", MODE_PRIVATE)
+            val isGuideFinished = sharedPreferences.getBoolean("guide_finished", false)
+
+            if (!isGuideFinished) {
+                navController?.navigate(R.id.guidePage1Fragment)
+            }
         }
 
         binding.navView.setOnItemSelectedListener { menuItem ->
