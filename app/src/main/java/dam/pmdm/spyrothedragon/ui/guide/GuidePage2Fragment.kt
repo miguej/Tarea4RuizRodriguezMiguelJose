@@ -27,9 +27,9 @@ class GuidePage2Fragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Aplicamos la animación de rebote al bocadillo
-        val bounceAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.bounce)
-        binding.llSpeechBubble.startAnimation(bounceAnimation)
+        // Animación de deslizamiento (Slide In Right)
+        val slideAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_in_right)
+        binding.llSpeechBubble.startAnimation(slideAnimation)
 
         binding.btnNext.setOnClickListener {
             // Cambiamos la pestaña a Mundos

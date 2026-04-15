@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.DialogFragment
+import dam.pmdm.spyrothedragon.R
 import dam.pmdm.spyrothedragon.databinding.FragmentGuidePage6Binding
 
 class GuidePage6Fragment : DialogFragment() {
@@ -22,6 +24,10 @@ class GuidePage6Fragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Animación de ampliación (Zoom In)
+        val zoomInAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.zoom_in)
+        binding.root.startAnimation(zoomInAnimation)
 
         binding.btnReady.setOnClickListener {
             // Se termina la guia

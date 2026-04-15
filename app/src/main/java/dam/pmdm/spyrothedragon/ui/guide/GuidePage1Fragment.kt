@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import dam.pmdm.spyrothedragon.R
@@ -24,6 +25,12 @@ class GuidePage1Fragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Animación de aparición (Fade In)
+        val fadeInAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
+        binding.ivSpyroLogo.startAnimation(fadeInAnimation)
+        binding.tvTitle.startAnimation(fadeInAnimation)
+        binding.tvDescription.startAnimation(fadeInAnimation)
 
         binding.btnStart.setOnClickListener {
             findNavController().navigate(R.id.action_guidePage1_to_guidePage2)
