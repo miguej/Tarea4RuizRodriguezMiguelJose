@@ -39,6 +39,10 @@ class GuidePage2Fragment : DialogFragment() {
             // 2. Navegamos al diálogo de la Pantalla 3
             findNavController().navigate(R.id.guidePage3Fragment)
         }
+
+        binding.btnSkip.setOnClickListener {
+            dismiss()
+        }
     }
 
     override fun onStart() {

@@ -33,6 +33,10 @@ class GuidePage4Fragment : DialogFragment() {
         binding.btnNext.setOnClickListener {
             findNavController().navigate(R.id.action_guidePage4_to_guidePage5)
         }
+
+        binding.btnSkip.setOnClickListener {
+            dismiss()
+        }
     }
 
     override fun onStart() {

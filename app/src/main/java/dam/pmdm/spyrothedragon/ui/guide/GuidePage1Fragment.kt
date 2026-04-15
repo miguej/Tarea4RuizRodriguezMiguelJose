@@ -28,6 +28,10 @@ class GuidePage1Fragment : DialogFragment() {
         binding.btnStart.setOnClickListener {
             findNavController().navigate(R.id.action_guidePage1_to_guidePage2)
         }
+
+        binding.btnSkip.setOnClickListener {
+            dismiss()
+        }
     }
 
     override fun onStart() {

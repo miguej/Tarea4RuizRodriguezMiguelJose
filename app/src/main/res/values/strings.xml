@@ -24,4 +24,5 @@
     <string name="guide_summary_step3">✓ Coleccionables</string>
     <string name="guide_summary_step4">✓ Información</string>
     <string name="guide_button_ready">¡Fin de  la guía! ¡Disfruta de Spyro!</string>
+    <string name="guide_button_skip">Saltar guía</string>
 </resources>
