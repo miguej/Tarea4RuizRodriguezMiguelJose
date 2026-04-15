@@ -32,14 +32,14 @@ class GuidePage3Fragment : DialogFragment() {
         binding.llSpeechBubble.startAnimation(bounceAnimation)
 
         binding.btnNext.setOnClickListener {
-            // 1. Cambiamos la pestaña a Coleccionables
+            // Cambiamos la pestaña a Coleccionables
             val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.navView)
             bottomNav?.selectedItemId = R.id.nav_collectibles
             
-            // 2. Navegamos al diálogo de la Pantalla 4
+            // Nos vamos al diálogo de la Pantalla 4
             findNavController().navigate(R.id.guidePage4Fragment)
         }
-
+        // Cerramos la guia
         binding.btnSkip.setOnClickListener {
             dismiss()
         }

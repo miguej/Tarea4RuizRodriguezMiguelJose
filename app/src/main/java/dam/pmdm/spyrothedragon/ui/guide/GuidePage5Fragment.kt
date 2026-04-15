@@ -27,14 +27,14 @@ class GuidePage5Fragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Aplicamos una animación diferente: Latido/Pulso
+        // Animacion de latido
         val pulseAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.pulse)
         binding.llSpeechBubble.startAnimation(pulseAnimation)
 
         binding.btnNext.setOnClickListener {
             findNavController().navigate(R.id.action_guidePage5_to_guidePage6)
         }
-
+        // Cerramos la guia
         binding.btnSkip.setOnClickListener {
             dismiss()
         }

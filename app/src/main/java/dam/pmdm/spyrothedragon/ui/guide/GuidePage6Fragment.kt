@@ -24,7 +24,7 @@ class GuidePage6Fragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnReady.setOnClickListener {
-            // Finalizamos la guía definitivamente
+            // Se termina la guia
             dismiss()
         }
     }

@@ -26,14 +26,14 @@ class GuidePage4Fragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Aplicamos una animación diferente: Deslizamiento hacia arriba con desvanecimiento
+        // Aplicamos una animación diferente
         val slideUpAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_slide_up)
         binding.llSpeechBubble.startAnimation(slideUpAnimation)
 
         binding.btnNext.setOnClickListener {
             findNavController().navigate(R.id.action_guidePage4_to_guidePage5)
         }
-
+        // Cerramos la guia
         binding.btnSkip.setOnClickListener {
             dismiss()
         }

@@ -32,14 +32,14 @@ class GuidePage2Fragment : DialogFragment() {
         binding.llSpeechBubble.startAnimation(bounceAnimation)
 
         binding.btnNext.setOnClickListener {
-            // 1. Cambiamos la pestaña a Mundos
+            // Cambiamos la pestaña a Mundos
             val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.navView)
             bottomNav?.selectedItemId = R.id.nav_worlds
             
-            // 2. Navegamos al diálogo de la Pantalla 3
+            // Nos vamos al diálogo de la Pantalla 3
             findNavController().navigate(R.id.guidePage3Fragment)
         }
-
+        // Cerramos la guia
         binding.btnSkip.setOnClickListener {
             dismiss()
         }
