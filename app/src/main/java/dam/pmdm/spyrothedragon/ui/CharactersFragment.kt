@@ -15,7 +15,7 @@ import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
 import java.io.InputStream
 
-class CharactersFragment : Fragment() {
+class CharactersFragment : Fragment(), CharactersAdapter.OnCharacterLongClickListener {
 
     private var _binding: FragmentCharactersBinding? = null
     private val binding get() = _binding!!
@@ -34,11 +34,24 @@ class CharactersFragment : Fragment() {
 
         recyclerView = binding.recyclerViewCharacters
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = CharactersAdapter(charactersList)
+        adapter = CharactersAdapter(charactersList, this)
         recyclerView.adapter = adapter
 
         loadCharacters()
         return binding.root
+    }
+
+    override fun onCharacterLongClick(character: dam.pmdm.spyrothedragon.models.Character) {
+        if (character.name == "Ripto") {
+            binding.glowAnimationView.visibility = View.VISIBLE
+            binding.glowAnimationView.startAnimation()
+            
+            // Ocultar después de unos segundos
+            binding.glowAnimationView.postDelayed({
+                binding.glowAnimationView.stopAnimation()
+                binding.glowAnimationView.visibility = View.GONE
+            }, 6000)
+        }
     }
 
     override fun onDestroyView() {
