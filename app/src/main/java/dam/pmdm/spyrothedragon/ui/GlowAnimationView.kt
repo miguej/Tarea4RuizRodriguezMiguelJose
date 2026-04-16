@@ -25,7 +25,6 @@ class GlowAnimationView @JvmOverloads constructor(
         addUpdateListener {
             val fraction = it.animatedValue as Float
             radius = 50f + fraction * 150f
-            // Change color intensity/hue
             glowColor = Color.argb(
                 (100 + fraction * 155).toInt(),
                 255,
@@ -38,16 +37,15 @@ class GlowAnimationView @JvmOverloads constructor(
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        // Adjust these coordinates to match Ripto's scepter diamond position
-        // This is an estimation, might need adjustment depending on the image
-        centerX = w * 0.52f
-        centerY = h * 0.38f
+        // Con esto centramos el circulo cuanto menor el numero que multiplica h mas arriba, cuanto menor el de w mas a la izquierda
+        centerX = w * 0.15f
+        centerY = h * 0.80f
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         
-        // Draw multiple layers of glow
+        
         for (i in 5 downTo 1) {
             paint.shader = RadialGradient(
                 centerX, centerY, radius * (i / 5f),
