@@ -1,5 +1,6 @@
 package dam.pmdm.spyrothedragon.ui.guide
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -32,6 +33,7 @@ class GuidePage2Fragment : DialogFragment() {
         binding.llSpeechBubble.startAnimation(slideAnimation)
 
         binding.btnNext.setOnClickListener {
+            playSound(R.raw.gemaspyro)
             // Cambiamos la pestaña a Mundos
             val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.navView)
             bottomNav?.selectedItemId = R.id.nav_worlds
@@ -44,6 +46,12 @@ class GuidePage2Fragment : DialogFragment() {
             markGuideAsFinished()
             dismiss()
         }
+    }
+
+    private fun playSound(resId: Int) {
+        val mediaPlayer = MediaPlayer.create(requireContext(), resId)
+        mediaPlayer.setOnCompletionListener { it.release() }
+        mediaPlayer.start()
     }
     // Marcamos la guia si la saltamos
     private fun markGuideAsFinished() {

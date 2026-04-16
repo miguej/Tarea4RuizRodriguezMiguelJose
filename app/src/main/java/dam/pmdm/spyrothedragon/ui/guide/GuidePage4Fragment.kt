@@ -1,5 +1,6 @@
 package dam.pmdm.spyrothedragon.ui.guide
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +32,7 @@ class GuidePage4Fragment : DialogFragment() {
         binding.llSpeechBubble.startAnimation(slideUpAnimation)
 
         binding.btnNext.setOnClickListener {
+            playSound(R.raw.gemaspyro)
             findNavController().navigate(R.id.action_guidePage4_to_guidePage5)
         }
         // Cerramos la guia
@@ -38,6 +40,12 @@ class GuidePage4Fragment : DialogFragment() {
             markGuideAsFinished()
             dismiss()
         }
+    }
+
+    private fun playSound(resId: Int) {
+        val mediaPlayer = MediaPlayer.create(requireContext(), resId)
+        mediaPlayer.setOnCompletionListener { it.release() }
+        mediaPlayer.start()
     }
     // Marcamos la guia si la saltamos
     private fun markGuideAsFinished() {
