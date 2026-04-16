@@ -6,8 +6,6 @@
     <string name="title_about">Acerca de</string>
     <string name="text_about">Aplicación desarrollada por \n <b>Miguel José Ruiz Rodríguez</b></string>
     <string name="accept">Aceptar</string>
-
-    <!-- Guide Strings -->
     <string name="guide_welcome_title">¡Bienvenido a Spyro the Dragon!</string>
     <string name="guide_welcome_description">Preparate para explorar el fascinante mundo de Spyro the Dragon. Embárcate en una aventura mágica a través de los Reinos del Dragón. Aquí aprenderas a navegar por las diversas pestañas de la aplicación.¿Estas listo? ¡Pulsa Comenzar!.</string>
     <string name="guide_button_start">Comenzar</string>

@@ -18,7 +18,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Speech Bubble Container -->
     <LinearLayout
         android:id="@+id/llSpeechBubble"
         android:layout_width="0dp"
@@ -56,7 +55,6 @@
             app:backgroundTint="@null" />
     </LinearLayout>
 
-    <!-- Arrow pointing to the first tab -->
     <ImageView
         android:id="@+id/ivArrow"
         android:layout_width="40dp"
