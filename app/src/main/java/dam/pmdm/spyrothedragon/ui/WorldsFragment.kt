@@ -15,7 +15,9 @@ import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
 import java.io.InputStream
 
-class WorldsFragment : Fragment() {
+import androidx.navigation.fragment.findNavController
+
+class WorldsFragment : Fragment(), WorldsAdapter.OnWorldClickListener {
 
     private var _binding: FragmentWorldsBinding? = null
     private val binding get() = _binding!!
@@ -23,6 +25,10 @@ class WorldsFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: WorldsAdapter
     private val worldsList = mutableListOf<World>()
+
+    // Variables para el Easter Egg
+    private var lastClickedPosition: Int = -1
+    private var clickCount: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,11 +40,26 @@ class WorldsFragment : Fragment() {
 
         recyclerView = binding.recyclerViewWorlds
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = WorldsAdapter(worldsList)
+        adapter = WorldsAdapter(worldsList, this)
         recyclerView.adapter = adapter
 
         loadWorlds()
         return binding.root
+    }
+
+    override fun onWorldClick(position: Int) {
+        if (lastClickedPosition == position) {
+            clickCount++
+        } else {
+            lastClickedPosition = position
+            clickCount = 1
+        }
+
+        if (clickCount == 3) {
+            // Activar Easter Egg
+            clickCount = 0
+            findNavController().navigate(R.id.action_navigation_worlds_to_videoPlayerFragment)
+        }
     }
 
     override fun onDestroyView() {

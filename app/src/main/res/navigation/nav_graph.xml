@@ -9,7 +9,17 @@
         android:id="@+id/navigation_worlds"
         android:name="dam.pmdm.spyrothedragon.ui.WorldsFragment"
         android:label="@string/worlds"
-        tools:layout="@layout/fragment_worlds" />
+        tools:layout="@layout/fragment_worlds">
+        <action
+            android:id="@+id/action_navigation_worlds_to_videoPlayerFragment"
+            app:destination="@id/videoPlayerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/videoPlayerFragment"
+        android:name="dam.pmdm.spyrothedragon.ui.VideoPlayerFragment"
+        android:label="VideoPlayerFragment"
+        tools:layout="@layout/fragment_video_player" />
 
     <fragment
         android:id="@+id/navigation_characters"
