@@ -1,5 +1,6 @@
 package dam.pmdm.spyrothedragon.ui.guide
 
+import android.animation.ObjectAnimator
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -27,11 +28,19 @@ class GuidePage1Fragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Animación de aparición (Fade In)
-        val fadeInAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
-        binding.ivSpyroLogo.startAnimation(fadeInAnimation)
-        binding.tvTitle.startAnimation(fadeInAnimation)
-        binding.tvDescription.startAnimation(fadeInAnimation)
+        // Usamos objectanimator
+        ObjectAnimator.ofFloat(binding.ivSpyroLogo, "alpha", 0f, 1f).apply {
+            duration = 1000
+            start()
+        }
+        ObjectAnimator.ofFloat(binding.tvTitle, "alpha", 0f, 1f).apply {
+            duration = 1000
+            start()
+        }
+        ObjectAnimator.ofFloat(binding.tvDescription, "alpha", 0f, 1f).apply {
+            duration = 1000
+            start()
+        }
 
         binding.btnStart.setOnClickListener {
             playSound(R.raw.gemaspyro)

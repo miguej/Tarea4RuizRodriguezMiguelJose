@@ -1,11 +1,13 @@
 package dam.pmdm.spyrothedragon.ui.guide
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
+import android.view.animation.BounceInterpolator
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -28,9 +30,17 @@ class GuidePage3Fragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Aplicamos la animación de rebote al bocadillo
-        val bounceAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.bounce)
-        binding.llSpeechBubble.startAnimation(bounceAnimation)
+        // Animacion de rebotes
+        val scaleX = ObjectAnimator.ofFloat(binding.llSpeechBubble, "scaleX", 0.8f, 1.0f)
+        val scaleY = ObjectAnimator.ofFloat(binding.llSpeechBubble, "scaleY", 0.8f, 1.0f)
+        val alpha = ObjectAnimator.ofFloat(binding.llSpeechBubble, "alpha", 0f, 1f)
+
+        AnimatorSet().apply {
+            playTogether(scaleX, scaleY, alpha)
+            interpolator = BounceInterpolator()
+            duration = 800
+            start()
+        }
 
         binding.btnNext.setOnClickListener {
             playSound(R.raw.gemaspyro)

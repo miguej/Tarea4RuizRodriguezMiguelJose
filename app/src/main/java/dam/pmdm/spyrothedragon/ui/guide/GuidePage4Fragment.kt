@@ -1,5 +1,7 @@
 package dam.pmdm.spyrothedragon.ui.guide
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -27,9 +29,15 @@ class GuidePage4Fragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Aplicamos una animación diferente
-        val slideUpAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_slide_up)
-        binding.llSpeechBubble.startAnimation(slideUpAnimation)
+        // Cuarta animacion
+        val slide = ObjectAnimator.ofFloat(binding.llSpeechBubble, "translationY", 500f, 0f)
+        val alpha = ObjectAnimator.ofFloat(binding.llSpeechBubble, "alpha", 0f, 1f)
+
+        AnimatorSet().apply {
+            playTogether(slide, alpha)
+            duration = 800
+            start()
+        }
 
         binding.btnNext.setOnClickListener {
             playSound(R.raw.gemaspyro)

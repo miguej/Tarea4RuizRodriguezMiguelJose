@@ -1,5 +1,8 @@
 package dam.pmdm.spyrothedragon.ui.guide
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,9 +31,21 @@ class GuidePage5Fragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Animacion de latido
-        val pulseAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.pulse)
-        binding.llSpeechBubble.startAnimation(pulseAnimation)
+        // Animacion de latido, muy chula
+        val scaleX = ObjectAnimator.ofFloat(binding.llSpeechBubble, "scaleX", 1.0f, 1.1f).apply {
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }
+        val scaleY = ObjectAnimator.ofFloat(binding.llSpeechBubble, "scaleY", 1.0f, 1.1f).apply {
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }
+        
+        AnimatorSet().apply {
+            playTogether(scaleX, scaleY)
+            duration = 500
+            start()
+        }
 
         binding.btnNext.setOnClickListener {
             playSound(R.raw.gemaspyro)

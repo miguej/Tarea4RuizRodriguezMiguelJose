@@ -1,5 +1,7 @@
 package dam.pmdm.spyrothedragon.ui.guide
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,9 +28,16 @@ class GuidePage6Fragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Animación de ampliación (Zoom In)
-        val zoomInAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.zoom_in)
-        binding.root.startAnimation(zoomInAnimation)
+        // Hacemos Zoom
+        val scaleX = ObjectAnimator.ofFloat(binding.root, "scaleX", 0.8f, 1f)
+        val scaleY = ObjectAnimator.ofFloat(binding.root, "scaleY", 0.8f, 1f)
+        val alpha = ObjectAnimator.ofFloat(binding.root, "alpha", 0f, 1f)
+
+        AnimatorSet().apply {
+            playTogether(scaleX, scaleY, alpha)
+            duration = 1000
+            start()
+        }
 
         binding.btnReady.setOnClickListener {
             // Se termina la guia

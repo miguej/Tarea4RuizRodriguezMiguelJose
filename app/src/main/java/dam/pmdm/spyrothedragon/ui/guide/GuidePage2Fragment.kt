@@ -1,5 +1,7 @@
 package dam.pmdm.spyrothedragon.ui.guide
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,9 +30,15 @@ class GuidePage2Fragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Animación de deslizamiento (Slide In Right)
-        val slideAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_in_right)
-        binding.llSpeechBubble.startAnimation(slideAnimation)
+        // Otra animacion diferente
+        val slide = ObjectAnimator.ofFloat(binding.llSpeechBubble, "translationX", 1000f, 0f)
+        val alpha = ObjectAnimator.ofFloat(binding.llSpeechBubble, "alpha", 0f, 1f)
+        
+        AnimatorSet().apply {
+            playTogether(slide, alpha)
+            duration = 500
+            start()
+        }
 
         binding.btnNext.setOnClickListener {
             playSound(R.raw.gemaspyro)
